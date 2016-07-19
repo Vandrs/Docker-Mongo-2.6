@@ -1,0 +1,11 @@
+version: '2' 
+services:
+    mongo:
+        container_name: mongo-2-6
+        build: ./server
+        volumes_from:
+            - volume_data
+    volume_data:
+        build: ./volume
+        volumes:
+            - ./volume/data:/var/data
