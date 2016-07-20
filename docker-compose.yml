@@ -5,10 +5,17 @@ services:
         build: ./server
         volumes_from:
             - volume_data
+        networks:
+            mongo_net:
+                ipv4_address: 172.25.0.101
     volume_data:
         build: ./volume
         volumes:
             - ./volume/data:/var/data
             - ./mongo:/data/db
-  
-
+networks:
+    mongo_net:
+        driver: bridge
+        ipam:
+          config:
+          - subnet: 172.25.0.0/24
