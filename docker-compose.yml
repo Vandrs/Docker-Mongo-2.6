@@ -9,3 +9,6 @@ services:
         build: ./volume
         volumes:
             - ./volume/data:/var/data
+            - ./volume/mongo:/data/db
+  
+
